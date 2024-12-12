@@ -9,7 +9,7 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 function chunk(array, size) {
-    const cantArr = Math.ceil(array.length / size);
+/*     const cantArr = Math.ceil(array.length / size);
     console.log(array);
     console.log(cantArr);
     let arrays = [];
@@ -22,6 +22,11 @@ function chunk(array, size) {
                 count++;
             }
         }
+    }
+ */    
+    let arrays = [];
+    for(let i = 0; i < array.length; i += size) {
+        arrays.push(array.slice(i, i + size));
     }
     return arrays;
 }
