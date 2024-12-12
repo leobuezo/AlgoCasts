@@ -8,6 +8,51 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    const strA = stringA.replace(/[^\w]/g, '').toLowerCase();
+    const strB = stringB.replace(/[^\w]/g, '').toLowerCase();
+    if(strA.length !== strB.length) return false;
 
+    let objA = stringMap(strA);
+    let objB = stringMap(strB);
+    console.log(stringA + ' - ' + strA);
+    console.log(stringB + ' - ' + strB);
+    console.log("objA ", objA);
+    console.log("objB ", objB);
+
+    let found = false;
+    for(let prop in objA) {
+        if(objA[prop] !== objB[prop]) {
+            console.log("objA[prop] ", objA[prop])
+            console.log("objB[prop] ", objB[prop])
+            found = true;
+        }
+    }
+    console.log("found in objA loop: ", found);
+    if(found) {
+        return false;
+    }
+    for(let prop in objB) {
+        if(objB[prop] !== objA[prop]) {
+            console.log("objA[prop] ", objA[prop])
+            console.log("objB[prop] ", objB[prop])
+            found = true;
+        }
+    }
+    console.log("found in objB loop: ", found);
+    if(found) {
+        return false;
+    }
+    return true;
+}
+
+function stringMap(str) {
+    let result = {};
+    for(let el of str) {
+        result[el] = result[el] + 1 || 1;
+    }
+    return result;
+}
+
+console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
 module.exports = anagrams;
