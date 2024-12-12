@@ -14,6 +14,7 @@
 
 function fizzBuzz(n) {
     for(let i = 1; i <= n; i++) {
+/*
         if(i % 3 === 0 && i % 5 === 0) {
         console.log("fizzbuzz");
         } else if(i % 5 === 0) {
@@ -23,6 +24,12 @@ function fizzBuzz(n) {
         } else {
             console.log(i);
         }
+*/
+        // shorter implementation
+        let output = ''
+        if(i%3===0) output += 'fizz'
+        if(i%5===0) output += 'buzz'
+        console.log(output || i)
     }
 }
 
