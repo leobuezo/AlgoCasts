@@ -9,7 +9,11 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    const strA = stringA.replace(/[^\w]/g, '').toLowerCase();
+    const strA = stringA.replace(/[^\w]/g, '').toLowerCase().split('').sort().join();
+    const strB = stringB.replace(/[^\w]/g, '').toLowerCase().split('').sort().join();
+    return strA === strB;
+}
+/*     const strA = stringA.replace(/[^\w]/g, '').toLowerCase();
     const strB = stringB.replace(/[^\w]/g, '').toLowerCase();
     if(strA.length !== strB.length) return false;
 
@@ -38,6 +42,6 @@ function stringMap(str) {
     }
     return result;
 }
-
+ */
 console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
 module.exports = anagrams;
