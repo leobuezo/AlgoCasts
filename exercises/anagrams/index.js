@@ -15,10 +15,6 @@ function anagrams(stringA, stringB) {
 
     let objA = stringMap(strA);
     let objB = stringMap(strB);
-    console.log(stringA + ' - ' + strA);
-    console.log(stringB + ' - ' + strB);
-    console.log("objA ", objA);
-    console.log("objB ", objB);
 
     let found = false;
     for(let prop in objA) {
@@ -29,17 +25,6 @@ function anagrams(stringA, stringB) {
         }
     }
     console.log("found in objA loop: ", found);
-    if(found) {
-        return false;
-    }
-    for(let prop in objB) {
-        if(objB[prop] !== objA[prop]) {
-            console.log("objA[prop] ", objA[prop])
-            console.log("objB[prop] ", objB[prop])
-            found = true;
-        }
-    }
-    console.log("found in objB loop: ", found);
     if(found) {
         return false;
     }
