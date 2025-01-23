@@ -17,15 +17,17 @@
 //       '### '
 //       '####'
 
-function steps(n) {
+function steps(n, figure) {
     let myArray = [];
     let j = 0;
     for(let i = 0; i < n; i++) {
-        myArray[i] = '#';
+        myArray[i] = figure;
         for(let j = i + 1; j < n; j++) {
             myArray[j] = ' ';
         }
-        console.log(myArray.join(''));
+        console.log('"' + myArray.join('') + '"');
     }
 }
+
+steps(7, 'x');
 module.exports = steps;
