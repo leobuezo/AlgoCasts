@@ -14,6 +14,25 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+    let columns = (n * 2) - 1;
+    let pounds = 1;
+    for(let r = 0; r < n; r++) {
+        let startPoint = Math.floor(columns / 2) - r;
+        let level = r + 1;
+        pounds = (level > 1) ? pounds + 2 : 1;
+        let rows = '';
+        for(let c = 0; c < columns; c++) {
+            // if((c < startPoint) || (c > startPoint + pounds-1)) {
+            //     myArray[c] = ' ';
+            // } else {
+            //     myArray[c] = '#';
+            // }
+            rows += (c < startPoint) || (c > startPoint + pounds-1) ? ' ' : '#';
+        }
+        console.log(rows);
+    }
+}
 
+pyramid(6);
 module.exports = pyramid;
