@@ -19,10 +19,14 @@ function vowels(str) {
     console.log(counter);
     return counter;
     */
+    /*
     const vowelsSet = new Set(['a', 'e', 'i', 'o', 'u']);
     let counter = 0;
     return ( [... str.toLowerCase().split('')].filter( char => vowelsSet.has(char) ? counter + 1 : 0).length);
+    */
+   const vowels = str.toLowerCase().match(/[aeiou]/g);
+   return vowels ? vowels.length : 0;
 }
 
-console.log(vowels('HolA mundo!'));
+console.log(vowels('HIsdfeagh!'));
 module.exports = vowels;
