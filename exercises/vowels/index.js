@@ -8,6 +8,7 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
+    /*
     let arr = str.toLowerCase().split('');
     let counter = 0;
     for(let i = 0; i < arr.length; i++) {
@@ -17,7 +18,11 @@ function vowels(str) {
     }
     console.log(counter);
     return counter;
+    */
+    const vowelsSet = new Set(['a', 'e', 'i', 'o', 'u']);
+    let counter = 0;
+    return ( [... str.toLowerCase().split('')].filter( char => vowelsSet.has(char) ? counter + 1 : 0).length);
 }
 
-vowels('HolA mundo!');
+console.log(vowels('HolA mundo!'));
 module.exports = vowels;
