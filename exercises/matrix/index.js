@@ -19,31 +19,17 @@ function matrix(n) {
     let matrix = Array.from({ length: n }, () => Array(n).fill(0));
     let min = 0;
     let max = n - 1;
-    let lines = (n*2)-1;
     let val = 1;
-
-    for(let l = 0; l < lines; l++) {
-        for(let c = min; c <= max; c++) {
-            matrix[min][c] = val;
-            val++;
-        }
-        for(let f = min + 1; f <= max; f++) {
-            matrix[f][max] = val;
-            val++;
-        }
-        for(let ci = max - 1; ci >= min; ci--) {
-            matrix[max][ci] = val;
-            val++;
-        }
-        for(let fi = max - 1; fi >= min + 1; fi--) {
-            matrix[fi][min] = val;
-            val++;
-        }
+    while(min <= max) {
+        for(let c = min; c <= max; c++) matrix[min][c] = val++;
+        for(let f = min + 1; f <= max; f++) matrix[f][max] = val++;
+        for(let ci = max - 1; ci >= min; ci--) matrix[max][ci] = val++;
+        for(let fi = max - 1; fi >= min + 1; fi--) matrix[fi][min] = val++;
         min += 1;
         max -= 1;
     }    
     return matrix;
 }
 
-console.log(matrix(5));
+console.log(matrix(4));
 module.exports = matrix;
