@@ -1,4 +1,4 @@
-const fib = require('./index');
+const fib = require('./memoized_fib');
 
 test('Fib function is defined', () => {
   expect(typeof fib).toEqual('function');
@@ -20,6 +20,10 @@ test('calculates correct fib value for 4', () => {
   expect(fib(4)).toEqual(3);
 });
 
-test('calculates correct fib value for 15', () => {
+test('calculates correct fib value for 39', () => {
   expect(fib(39)).toEqual(63245986);
+});
+
+test('calculates correct fib value for 46', () => {
+  expect(fib(46)).toEqual(1836311903);
 });
