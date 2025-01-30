@@ -1,11 +1,12 @@
 function memoize(fn) {
-    const cache = {};
+    const cache = new Map();
     return function(...args) {
-        if(cache[args]) {
-            return cache[args];
+        const key = JSON.stringify(args);
+        if(cache.has(key)) {
+            return cache.get(key);
         }
         const result = fn.apply(this, args);
-        cache[args] = result;
+        cache.set(key, result);
         return result;
     }
 }
