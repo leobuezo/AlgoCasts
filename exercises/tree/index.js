@@ -18,23 +18,11 @@ class Node {
 
     add(data) {
         const newNode = new Node(data);
-        this.children[this.children.length] = newNode;
+        this.children.push(newNode);
     }
 
     remove(data) {
-        let i = 0;
-        let found = false;
-        while(i < this.children.length && found === false) {
-            if(data == this.children[i].data && i == this.children.length-1) {
-                this.children[i] = null;
-                this.children.length -= 1; 
-                found = true;
-            } else if(data == this.children[i].data) {
-                this.children[i] = this.children[i+1];
-                found = true;
-            }
-            i++;
-        }
+        this.children = this.children.filter( child => child.data !== data );
     }
 }
   
