@@ -32,6 +32,14 @@ class Tree {
     }
 
     traverseBF(fn) {
+        // let arrayBF = [];
+        // arrayBF.push(this.root);
+        // while(arrayBF.length > 0) {
+        //     for(let child of arrayBF[0].children) {
+        //         arrayBF.push(child);
+        //     }
+        //     fn(arrayBF.shift());    
+        // }
         let arrayBF = [];
         arrayBF.push(this.root);
         while(arrayBF.length > 0) {
@@ -42,14 +50,7 @@ class Tree {
         }
     }
 
-    traverseDF(fn) {
-        let arrayBF = [];
-        arrayBF.push(this.root);
-        while(arrayBF.length) {
-            const node = arrayBF.shift();
-            arrayBF.push(... node.children);
-            fn(node);
-        }
+    traverseF(fn) {
     }
 
 }
