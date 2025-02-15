@@ -42,11 +42,10 @@ class Tree {
         // }
         let arrayBF = [];
         arrayBF.push(this.root);
-        while(arrayBF.length > 0) {
-            for(let child of arrayBF[0].children) {
-                arrayBF.push(child);
-            }
-            fn(arrayBF.shift());    
+        while(arrayBF.length) {
+            const node = arrayBF.shift();
+            arrayBF.push(... node.children);
+            fn(node);
         }
     }
 
