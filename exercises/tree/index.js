@@ -49,7 +49,14 @@ class Tree {
         }
     }
 
-    traverseF(fn) {
+    traverseDF(fn) {
+        let arrayBF = [];
+        arrayBF.push(this.root);
+        while(arrayBF.length) {
+            const node = arrayBF.shift();
+            arrayBF.unshift(... node.children);
+            fn(node);
+        }
     }
 
 }
