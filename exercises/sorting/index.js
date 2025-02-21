@@ -34,7 +34,21 @@ function selectionSort(arr) {
     return arr;
 }
 
-function mergeSort(arr) {}
+function mergeSort(arr) {
+    if(arr.length <= 1) return arr;
+    let i = Math.floor(arr.length / 2);
+    let left = [];
+    let right = [];
+    for(let m = 0; m < i; m++) {
+        left.push(arr[m]);
+    }
+    for(let n = i; n < arr.length; n++) {
+        right.push(arr[n]);
+    }
+    left = mergeSort(left);
+    right = mergeSort(right);    
+    return merge(left, right);
+}
 
 function merge(left, right) {
     let results = [];
