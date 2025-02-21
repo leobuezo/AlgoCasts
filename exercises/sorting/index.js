@@ -37,14 +37,8 @@ function selectionSort(arr) {
 function mergeSort(arr) {
     if(arr.length <= 1) return arr;
     let i = Math.floor(arr.length / 2);
-    let left = [];
-    let right = [];
-    for(let m = 0; m < i; m++) {
-        left.push(arr[m]);
-    }
-    for(let n = i; n < arr.length; n++) {
-        right.push(arr[n]);
-    }
+    let left = arr.slice(0, i);
+    let right = arr.slice(i);
     left = mergeSort(left);
     right = mergeSort(right);    
     return merge(left, right);
