@@ -4,7 +4,7 @@
 function bubbleSort(arr) {
     let sorted = false;
     while(sorted == false) {
-        aChange = false;
+        let aChange = false;
         for(let i = 0; i < arr.length -1; i++) {
             if(arr[i] > arr[i+1]) {
                 let flag = arr[i];
@@ -18,7 +18,21 @@ function bubbleSort(arr) {
     return arr;
 }
 
-function selectionSort(arr) {}
+function selectionSort(arr) {
+    for(let n = 0; n < arr.length; n++) {
+        let smallest = arr[n];
+        let smallest_pos = n;
+        for(let i = n+1; i < arr.length; i++) {
+            if(arr[i] < smallest) {
+                smallest_pos = i;
+                smallest = arr[i];
+            }
+        }
+        arr[smallest_pos] = arr[n];
+        arr[n] = smallest;
+    }
+    return arr;
+}
 
 function mergeSort(arr) {}
 
