@@ -40,7 +40,7 @@ function mergeSort(arr) {
     let left = arr.slice(0, i);
     let right = arr.slice(i);
     left = mergeSort(left);
-    right = mergeSort(right);    
+    right = mergeSort(right);
     return merge(left, right);
 }
 
